@@ -1,0 +1,17 @@
+# kubectl taint nodes <NODENAME> key=value:<TAINT-EFFECT>
+# kubectl taint nodes NODENAME app=blue:NoSchedule
+# kubectl taint node worker app=blue:NoSchedule-
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-taint
+spec:
+  containers:
+    - name: nginx
+      image: docker.io/nginx:latest
+  tolerations:
+    - key: "app"
+      operator: "Equal"
+      value: "blue"
+      effect: "NoSchedule"

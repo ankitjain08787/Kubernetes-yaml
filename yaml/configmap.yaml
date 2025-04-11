@@ -1,0 +1,10 @@
+# kubectl create configmap app-config --from-literal=APP_COLOR=BLUE --from-literal=APP_MODE=PROD
+# kubectl create configmap app-config --from-file=<path-to-file>
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  APP_COLOR: BLUE
+  APP_MODE: PROD

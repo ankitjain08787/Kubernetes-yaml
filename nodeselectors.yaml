@@ -1,0 +1,15 @@
+# Node should ave label size=Large
+#kubectl label node worker size=Large
+#kubectl get nodes --show-labels
+#kubectl label node worker size-
+#
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-nodeselector1
+spec:
+  containers:
+    - name: nginx
+      image: docker.io/nginx:latest
+  nodeSelector:
+    size: Large
